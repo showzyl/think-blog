@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>小博客</title>
+  <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+  <link rel="stylesheet" href="/static/css/base.css"/>
+</head>
+<body>
+  <% if(locals.user){ %>
+      <section>
+        欢饮您， <%= user.user %> <a href="/user/logout?code=<%=user.code%>">退出</a>
+      </section>
+  <% }else{ %>
+      <!-- 注册 -->
+      <section>
+        <form class="form-inline mt10 ml10" action="/user/reg" method="post">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Username" name="user">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="pass">
+          </div>
+          <button type="submit" class="btn btn-default">注册</button>
+        </form>
+      </section>
+
+      <!-- 登陆 -->
+      <section>
+        <form class="form-inline mt10 ml10" action="/user/login" method="post">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Username" name="user">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="pass">
+          </div>
+          <button type="submit" class="btn btn-default">登陆</button>
+        </form>
+      </section>
+  <% } %>
+    <section class="mt10 ml10">
+      <a class="btn btn-primary" href="/article/list">文章列表</a>
+      <a class="btn btn-primary" href="/article/pub">发表文章</a>
+    </section>
+
+
+
+
+  <div class="content">
+
+  </div>
+</body>
+
+<script>
+
+var regNumber = /[1|2]{1}\d{1}/g;
+
+var n = 22;
+
+if(regNumber.test(n)){
+  console.log(1);
+}else{
+  console.log(2);
+}
+
+</script>
+
+</html>

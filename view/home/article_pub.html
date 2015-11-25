@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发表文章</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/css/base.css"/>
+</head>
+<body>
+
+<section>
+    <form class="form-inline mt10 ml10" action="/article/add" method="post">
+        <input type="hidden" name="uid" value="<%= (locals.user && locals.user.uid) || (locals.article && locals.article.uid) %>"/>
+        <input type="hidden" name="aid" value="<%= locals.article && locals.article.aid %>"/>
+        <input type="text" class="form-control" placeholder="文章标题" name="title" value="<%= locals.article && locals.article.title %>"><br/>
+        <textarea class="form-control mt10" rows="10" cols="80" name="content"><%= locals.article && locals.article.content %></textarea><br/>
+        <button type="submit" class="btn btn-primary mt10">提交</button>
+    </form>
+</section>
+
+
+
+</body>
+</html>
